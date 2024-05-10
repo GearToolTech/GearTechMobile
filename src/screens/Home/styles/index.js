@@ -157,26 +157,7 @@ const styles = StyleSheet.create({
     elevation: 15,
   },
 
-  Btn: {
-    height: 50,
-    width: 145,
-    borderRadius: 20,
-    padding: 10,
-    backgroundColor: "#FCA311",
-    alignItems: "center",
-    marginTop: 10,
-    justifyContent: "center",
-  },
-  BtnProfessor: {
-    height: 50,
-    width: 145,
-    borderRadius: 20,
-    padding: 10,
-    backgroundColor: "#FCA311",
-    alignItems: "center",
-    marginTop: 10,
-    justifyContent: "center",
-  },
+
   txtBtn: {
     color: "white",
     fontSize: 18,

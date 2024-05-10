@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         width: "30%",
       },
       android: {
-        height: '65%',
+        height: 550,
         width: '80%',
         marginTop: 40,
       },

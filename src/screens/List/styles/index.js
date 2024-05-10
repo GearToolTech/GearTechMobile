@@ -3,75 +3,90 @@ import { StyleSheet, Platform } from "react-native";
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
   },
   BackGround: {
     flex: 1,
     width: "100%",
   },
+
+  body: {
+    flex: 1,
+    position: "absolute",
+    width: "100%",
+    alignItems: "center",
+  },
+
   backlogos: {
-    height: 150,
+    height: '18%',
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
     justifyContent: "space-around",
+    backgroundColor: "white",
   },
   logo: {
-    height: 100,
-    width: 100,
+    height: 75,
+    width: 75,
     marginTop: 30,
   },
 
   main: {
-    position: "absolute",
     width: "80%",
+    justifyContent: "flex-end",
   },
 
   containerDenteReto: {
-    height: 100,
+    height: 150,
     alignItems: "center",
-    backgroundColor: "white",
     marginVertical: 10,
     borderRadius: 30,
     backgroundColor: "#E4E9F7",
+    flexDirection: "row",
   },
   containerHelicoidal: {
-    height: 100,
+    height: 150,
     alignItems: "center",
-    backgroundColor: "white",
     marginVertical: 10,
     borderRadius: 30,
     backgroundColor: "#E4E9F7",
+    flexDirection: 'row'
   },
   containerConicos: {
-    height: 100,
+    height: 150,
     alignItems: "center",
-    backgroundColor: "white",
     marginVertical: 10,
     borderRadius: 30,
     backgroundColor: "#E4E9F7",
+    flexDirection: 'row'
   },
   containerTransmissao: {
-    height: 100,
+    height: 150,
     alignItems: "center",
-    backgroundColor: "white",
     marginVertical: 10,
     borderRadius: 30,
     backgroundColor: "#E4E9F7",
+    flexDirection: 'row'
+  },
+
+  image: {
+    width: "50%",
+    alignItems: "center",
+  },
+  content: {
+    width: "50%",
+    alignItems: "center",
   },
 
   text: {
     fontSize: 20,
     marginBottom: 10,
-    textAlign: "center",
+    alignSelf: 'center',
     fontWeight: "bold",
-  },
+    },
 
   button: {
     height: 40,
-    width: "60%",
+    width: "80%",
     borderRadius: 5,
     padding: 10,
     backgroundColor: "#333333",

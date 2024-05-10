@@ -1,8 +1,7 @@
-// src/screens/Home/index.js
-
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import AnimatedButton from "../../components/Animation/AnimatedButton";
 import styles from "./styles";
 
 function HomeScreen() {
@@ -35,12 +34,9 @@ function HomeScreen() {
             <Text style={styles.title}>Entrar como Aluno</Text>
             <View style={styles.btnaluno}>
               <Image source={require("../../../assets/image/alunoIcon.png")} />
-              <TouchableOpacity
-                style={styles.Btn}
-                onPress={() => navigation.navigate("LoginAluno")}
-              >
+              <AnimatedButton onPress={() => navigation.navigate("LoginAluno")}>
                 <Text style={styles.txtBtn}>Entrar</Text>
-              </TouchableOpacity>
+              </AnimatedButton>
             </View>
           </View>
 
@@ -51,12 +47,9 @@ function HomeScreen() {
               <Image
                 source={require("../../../assets/image/professorIcon.png")}
               />
-              <TouchableOpacity
-                style={styles.BtnProfessor}
-                onPress={() => navigation.navigate("LoginProfessor")}
-              >
+              <AnimatedButton onPress={() => navigation.navigate("LoginProfessor")}>
                 <Text style={styles.txtBtnProfessor}>Entrar</Text>
-              </TouchableOpacity>
+              </AnimatedButton>
             </View>
           </View>
         </View>
