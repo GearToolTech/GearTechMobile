@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   View,
   Text,
   TextInput,
   TouchableOpacity,
+  Image,
   Keyboard,
   Platform,
   KeyboardAvoidingView,
   ScrollView,
   Share,
-} from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { Header } from "../../../components/Header";
-import { Calculos } from "../../../service/SConicos";
-import styles from "./styles";
+} from 'react-native'
+import { Calculos } from '../../../service/SConicos'
+import styles from './styles'
 
 const Conicos = ({ navigation }) => {
-  const [modulo1, setModulo1] = useState("");
-  const [numeroDentes1, setNumeroDentes1] = useState("");
-  const [modulo2, setModulo2] = useState("");
-  const [numeroDentes2, setNumeroDentes2] = useState("");
-  const [AnguloPrimitivoCones1, setAnguloPrimitivoCones1] = useState("");
-  const [AnguloPrimitivoCones2, setAnguloPrimitivoCones2] = useState("");
-  const [resultado, setResultados] = useState(null);
+  const [modulo1, setModulo1] = useState('')
+  const [numeroDentes1, setNumeroDentes1] = useState('')
+  const [modulo2, setModulo2] = useState('')
+  const [numeroDentes2, setNumeroDentes2] = useState('')
+  const [AnguloPrimitivoCones1, setAnguloPrimitivoCones1] = useState('')
+  const [AnguloPrimitivoCones2, setAnguloPrimitivoCones2] = useState('')
+  const [resultado, setResultados] = useState(null)
 
   const calcular = () => {
     const resultadosCalculoPromise = Calculos(
@@ -32,61 +31,75 @@ const Conicos = ({ navigation }) => {
       modulo2,
       numeroDentes2,
       AnguloPrimitivoCones2
-    );
+    )
     resultadosCalculoPromise
       .then((resultadosCalculo) => {
-        console.log("Resultados do cálculo:", resultadosCalculo);
+        console.log('Resultados do cálculo:', resultadosCalculo)
         if (resultadosCalculo) {
-          setResultados(resultadosCalculo);
+          setResultados(resultadosCalculo)
         } else {
-          alert("Por favor, preencha todos os campos com valores válidos.");
+          alert('Por favor, preencha todos os campos com valores válidos.')
         }
       })
       .catch((error) => {
-        console.error("Erro ao calcular resultados:", error);
-        alert("Ocorreu um erro ao calcular os resultados.");
-      });
-    Keyboard.dismiss();
-  };
+        console.error('Erro ao calcular resultados:', error)
+        alert('Ocorreu um erro ao calcular os resultados.')
+      })
+    Keyboard.dismiss()
+  }
 
   const downloadResultados = () => {
     if (!resultado) {
-      alert("Calcule os resultados antes de baixar.");
-      return;
+      alert('Calcule os resultados antes de baixar.')
+      return
     }
 
-    const fileContents = JSON.stringify(resultado);
-    const fileName = "resultados.json";
+    const fileContents = JSON.stringify(resultado)
+    const fileName = 'resultados.json'
     Share.share({
-      title: "Resultados de Engrenagem Helicoidal",
+      title: 'Resultados de Engrenagem Helicoidal',
       message: fileContents,
       url: `data:,${fileContents}`,
       filename: fileName,
     })
       .then((result) => console.log(result))
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   const dismissKeyboard = () => {
-    Keyboard.dismiss();
-  };
+    Keyboard.dismiss()
+  }
 
   const handleGoBack = () => {
-    navigation.goBack();
-  };
+    navigation.goBack()
+  }
 
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <TouchableOpacity style={styles.container}>
-          <LinearGradient
-            style={styles.linear}
-            colors={["#E9ECEF", "#DEE2E6", "#CED4DA", "#ADB5BD"]}
-          >
-            <Header />
+        <View style={styles.container}>
+          <Image
+            style={styles.BackGround}
+            source={require('../../../../assets/image/BackGroundList.png')}
+          />
+
+          <View style={styles.body}>
+            <View style={styles.backlogos}>
+              <TouchableOpacity
+                style={styles.goBackButton}
+                onPress={handleGoBack}
+              >
+                <Image source={require('../../../../assets/image/back.png')} />
+              </TouchableOpacity>
+              <Image
+                style={styles.logo}
+                source={require('../../../../assets/image/Logo.png')}
+              />
+              <Image source={require('../../../../assets/image/Menu.png')} />
+            </View>
             <Text style={styles.titulo}>Engrenagem Cônica</Text>
             <View style={styles.main}>
               <View style={styles.box}>
@@ -153,7 +166,7 @@ const Conicos = ({ navigation }) => {
                 </View>
               )}
 
-              {Platform.OS === "ios" && (
+              {Platform.OS === 'ios' && (
                 <TouchableOpacity
                   style={styles.closeKeyboardButton}
                   onPress={dismissKeyboard}
@@ -161,13 +174,6 @@ const Conicos = ({ navigation }) => {
                   <Text style={styles.txtBtn}>Fechar Teclado</Text>
                 </TouchableOpacity>
               )}
-
-              <TouchableOpacity
-                style={styles.goBackButton}
-                onPress={handleGoBack}
-              >
-                <Text style={styles.txtBtn}>Voltar</Text>
-              </TouchableOpacity>
             </View>
 
             <TouchableOpacity
@@ -176,11 +182,11 @@ const Conicos = ({ navigation }) => {
             >
               <Text style={styles.txtBtn}>Download</Text>
             </TouchableOpacity>
-          </LinearGradient>
-        </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
     </KeyboardAvoidingView>
-  );
-};
+  )
+}
 
-export default Conicos;
+export default Conicos

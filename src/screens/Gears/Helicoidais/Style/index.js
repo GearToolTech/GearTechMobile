@@ -2,28 +2,36 @@ import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    width: "100%",
-    alignItems: 'center',
-    paddingTop: 20
+    flex: 1,
   },
-  linear: {
-    height: "100%",
+  BackGround: {
+    flex: 1,
+    width: "100%",
+  },
+
+  body: {
+    flex: 1,
+    position: "absolute",
     width: "100%",
     alignItems: "center",
   },
-  titulo: {
-    ...Platform.select({
-      web:{
-        marginTop: 140
-      },
-      android:{
-        marginTop: 170
-      },
-    }),
-    fontSize: 30,
-    fontWeight: "bold",
-    position: 'absolute',
+
+  backlogos: {
+    height: '95%',
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "white",
+  },
+  logo: {
+    height: 75,
+    width: 75,
+    marginTop: 30,
+  },
+  titulo:{
+    fontSize: 25,
+    fontWeight: 'bold'
   },
   main: {
     ...Platform.select({
@@ -44,7 +52,7 @@ const styles = StyleSheet.create({
       }
     }),
     alignItems: "center",
-    backgroundColor: "#C0C9D1",
+    backgroundColor: "#E4E9F7",
     borderRadius: 10,
     shadowColor: "#171717",
     shadowRadius: 10,
@@ -65,7 +73,7 @@ const styles = StyleSheet.create({
     }),
     marginTop: 10,
     alignItems: "center",
-    backgroundColor: "#C0C9D1",
+    backgroundColor: "#E4E9F7",
     justifyContent: "center",
     flexDirection: 'row',
     width: '99%',

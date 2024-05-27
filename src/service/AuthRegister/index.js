@@ -2,7 +2,7 @@ import axios from "axios";
 
 const authRegister = {
   registerAluno: async (nomeAlunos, numMatricula, emailEdu, turma, senha) => {
-    const apiUrlA = "http://192.168.0.24:8080/aluno";
+    const apiUrlA = "http://192.168.137.1:8080/auth/registerAluno";
     axios
       .post(apiUrlA, {
         nome: nomeAlunos,

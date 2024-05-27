@@ -40,7 +40,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     marginVertical: 10,
     borderRadius: 30,
-    backgroundColor: "#E4E9F7",
+    backgroundColor: "#C5D1F2",
     flexDirection: "row",
   },
   containerHelicoidal: {
@@ -48,7 +48,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     marginVertical: 10,
     borderRadius: 30,
-    backgroundColor: "#E4E9F7",
+    backgroundColor: "#C5D1F2",
     flexDirection: 'row'
   },
   containerConicos: {
@@ -56,7 +56,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     marginVertical: 10,
     borderRadius: 30,
-    backgroundColor: "#E4E9F7",
+    backgroundColor: "#C5D1F2",
     flexDirection: 'row'
   },
   containerTransmissao: {
@@ -64,7 +64,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     marginVertical: 10,
     borderRadius: 30,
-    backgroundColor: "#E4E9F7",
+    backgroundColor: "#C5D1F2",
     flexDirection: 'row'
   },
 

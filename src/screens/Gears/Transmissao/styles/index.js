@@ -2,24 +2,36 @@ import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    width: "100%",
-    backgroundColor: 'white',
-    alignItems: 'center',
-    paddingTop: 20
+    flex: 1,
   },
-  titulo: {
-    ...Platform.select({
-      web:{
-        marginTop: 140
-      },
-      android:{
-        marginTop: 170
-      },
-    }),
-    fontSize: 30,
-    fontWeight: "bold",
-    position: 'absolute',
+  BackGround: {
+    flex: 1,
+    width: "100%",
+  },
+
+  body: {
+    flex: 1,
+    position: "absolute",
+    width: "100%",
+    alignItems: "center",
+  },
+
+  backlogos: {
+    height: '100%',
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "white",
+  },
+  logo: {
+    height: 75,
+    width: 75,
+    marginTop: 30,
+  },
+  titulo:{
+    fontSize: 25,
+    fontWeight: 'bold'
   },
   main: {
     ...Platform.select({
@@ -40,7 +52,7 @@ const styles = StyleSheet.create({
       }
     }),
     alignItems: "center",
-    backgroundColor: "#CED4DA",
+    backgroundColor: "#E4E9F7",
     borderRadius: 10,
     shadowColor: "#171717",
     shadowRadius: 10,
@@ -55,7 +67,7 @@ const styles = StyleSheet.create({
       },
       android:{
         height: "30%",
-        width: "100%",
+        width: "80%",
       },
       ios:{
         height: "30%",
@@ -65,7 +77,7 @@ const styles = StyleSheet.create({
     }),
     marginTop: 10,
     alignItems: "center",
-    backgroundColor: "#CED4DA",
+    backgroundColor: "#E4E9F7",
     justifyContent: "center",
   },
   text: {
@@ -80,7 +92,7 @@ const styles = StyleSheet.create({
       },
       android: {
         height: 50,
-        width: "80%",
+        width: "100%",
       },
       ios:{
         height: 50,
@@ -174,7 +186,7 @@ const styles = StyleSheet.create({
       },
       android: {
         height: 40,
-        width: "30%",
+        width: "40%",
       },
       ios:{
         height: 40,

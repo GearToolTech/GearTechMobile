@@ -8,7 +8,7 @@ const authService = {
   loginAluno: async (numMatricula, senha) => {
     try {
       await AsyncStorage.removeItem("token");
-      const response = await axios.post("http://192.168.0.24:8080/loginAluno", {
+      const response = await axios.post("http://192.168.137.1:8080/auth/loginAluno", {
         numMatricula: numMatricula,
         senha: senha,
       });

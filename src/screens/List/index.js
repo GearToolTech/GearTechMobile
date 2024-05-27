@@ -19,7 +19,7 @@ const ListScreen = () => {
   }, []);
 
   const handleGoBack = () => {
-    navigation.goBack(); // Navegue de volta para a tela anterior
+    navigation.goBack(); 
   };
 
   return (
