@@ -12,7 +12,10 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import styles from './styles'
 import { Header } from '../../../components/Header'
-import { Calculos } from '../../../service/SDentesRetos'
+import { Calculos } from '../../../service/SDentesRetos';
+import Icon_Exit from "react-native-vector-icons/MaterialIcons";
+
+
 
 const DentesRetos = () => {
   const navigation = useNavigation()
@@ -87,7 +90,7 @@ const DentesRetos = () => {
               style={styles.logo}
               source={require('../../../../assets/image/Logo.png')}
             />
-            <Image source={require('../../../../assets/image/Menu.png')} />
+          <Icon_Exit name="exit-to-app" size={40}/>
           </View>
           <Text style={styles.titulo}>Dentes Retos</Text>
           <View style={styles.main}>

@@ -13,6 +13,9 @@ import {
 } from 'react-native'
 import { Calculos } from '../../../service/SConicos'
 import styles from './styles'
+import Icon_Exit from "react-native-vector-icons/MaterialIcons";
+
+
 
 const Conicos = ({ navigation }) => {
   const [modulo1, setModulo1] = useState('')
@@ -98,7 +101,7 @@ const Conicos = ({ navigation }) => {
                 style={styles.logo}
                 source={require('../../../../assets/image/Logo.png')}
               />
-              <Image source={require('../../../../assets/image/Menu.png')} />
+          <Icon_Exit name="exit-to-app" size={40}/>
             </View>
             <Text style={styles.titulo}>Engrenagem Cônica</Text>
             <View style={styles.main}>

@@ -56,7 +56,7 @@ const RegisterScreenProfessor = () => {
             <TextInput
               style={styles.input}
               value={nome}
-              placeholder="Nome e Sobrenome"
+              placeholder="Nome"
               onChangeText={(text) => setNome(text)}
               onBlur={Keyboard.dismiss} // Adicione onBlur para ocultar o teclado
             ></TextInput>

@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   titulo:{
     fontSize: 16,
     fontWeight: 'bold',
+    marginTop: 35,
   },
   main: {
     ...Platform.select({
@@ -53,11 +54,12 @@ const styles = StyleSheet.create({
     elevation: 15
   },
   box: {
-    height: "90%",
+    height: "100%",
     width: "100%",
     alignItems: "center",
     backgroundColor: "white",
     justifyContent: "center",
+    borderRadius: 10,
   },
   input: {
     backgroundColor: "#DDDCE9",

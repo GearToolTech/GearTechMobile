@@ -83,7 +83,7 @@ const RegisterScreenAluno = () => {
           <TextInput
             style={styles.input}
             value={nomeAlunos}
-            placeholder="Nome e Sobrenome"
+            placeholder="Nome"
             onChangeText={(text) => setNomeAlunos(text)}
             onBlur={Keyboard.dismiss}
           />

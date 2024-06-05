@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 import { Header } from "../../components/Header";
 import authService from "../../service/Auth";
+import Icon_Exit from "react-native-vector-icons/MaterialIcons";
 
 const ListScreen = () => {
   const navigation = useNavigation();
@@ -37,7 +38,7 @@ const ListScreen = () => {
             style={styles.logo}
             source={require("../../../assets/image/Logo.png")}
           />
-          <Image source={require("../../../assets/image/Menu.png")} />
+          <Icon_Exit name="exit-to-app" size={40}/>
         </View>
 
         <View style={styles.main}>

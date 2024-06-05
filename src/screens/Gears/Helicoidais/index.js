@@ -15,6 +15,8 @@ import { useNavigation } from '@react-navigation/native'
 import { Header } from '../../../components/Header'
 import styles from './Style'
 import { CalculosHelicoidais } from '../../../service/SHelicoidais'
+import Icon_Exit from "react-native-vector-icons/MaterialIcons";
+
 
 function Helicoidal() {
   const navigation = useNavigation()
@@ -107,7 +109,7 @@ function Helicoidal() {
               style={styles.logo}
               source={require('../../../../assets/image/Logo.png')}
             />
-            <Image source={require('../../../../assets/image/Menu.png')} />
+          <Icon_Exit name="exit-to-app" size={40}/>
           </View>
           <Text style={styles.titulo}>Engrenagem Helicoidal</Text>
           <View style={styles.main}>

@@ -12,6 +12,9 @@ import {
 import { Calculos } from '../../../service/STransmissao'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native' // Importe o hook useNavigation
+import Icon_Exit from "react-native-vector-icons/MaterialIcons";
+
+
 
 function Transmissao() {
   const navigation = useNavigation() // Obtenha a função de navegação
@@ -114,7 +117,7 @@ function Transmissao() {
             style={styles.logo}
             source={require('../../../../assets/image/Logo.png')}
           />
-          <Image source={require('../../../../assets/image/Menu.png')} />
+          <Icon_Exit name="exit-to-app" size={40}/>
         </View>
 
         <Text style={styles.titulo}>Transmissões</Text>
