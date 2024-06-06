@@ -19,7 +19,7 @@ const authRegister = {
       });
   },
   registerProfessor: async (nome, nif, email, senha) => {
-    const apiUrlP = "http://10.110.12.16:8080/professor";
+    const apiUrlP = "http://10.110.12.16:8080/auth/registerProfessor";
     axios
       .post(apiUrlP, {
         nome: nome,

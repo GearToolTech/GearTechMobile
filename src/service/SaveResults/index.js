@@ -107,6 +107,23 @@ const saveRegister = {
       aluno: aluno,
     });
   },
+  fetchResultados: async () => {
+    try {
+      const user = await authService.getLoggedInUser();
+
+      const aluno = {
+        numMatricula: user.sub,
+      };
+
+      const apiUrl = "http://10.110.12.16:8080/resultadoDentesRetos/aluno/" + aluno.numMatricula;
+      const response = await axios.get(apiUrl);
+      console.log("resposta apiurl: ", response.data)
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao buscar resultados requisicao:", error);
+      return [];
+    }
+  },
 };
 
 export default saveRegister;

@@ -19,8 +19,16 @@ const ListScreen = () => {
     fetchUser();
   }, []);
 
-  const handleGoBack = () => {
-    navigation.goBack(); 
+
+
+  const handleExit = async () => {
+    try{
+      await authService.logout();
+      navigation.navigate("Home");
+    }
+    catch(err){
+      console.log("Erro ao sair da conta: ", err);
+    }
   };
 
   return (
@@ -30,16 +38,17 @@ const ListScreen = () => {
         source={require("../../../assets/image/BackGroundList.png")}
       />
       <View style={styles.body}>
+
         <View style={styles.backlogos}>
-          <TouchableOpacity style={styles.goBackButton} onPress={handleGoBack}>
-            <Image source={require("../../../assets/image/back.png")} />
-          </TouchableOpacity>
+          
           <Image
             style={styles.logo}
             source={require("../../../assets/image/Logo.png")}
           />
-          <Icon_Exit name="exit-to-app" size={40}/>
+
         </View>
+        <Icon_Exit style={styles.exit} name="exit-to-app" size={40} onPress={handleExit}/>
+
 
         <View style={styles.main}>
           <View style={styles.containerDenteReto}>

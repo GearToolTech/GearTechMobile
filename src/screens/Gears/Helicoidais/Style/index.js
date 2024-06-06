@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 
   backlogos: {
-    height: '95%',
+    height: '80%',
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
@@ -33,6 +33,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold'
   },
+  icons:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 40,
+    width: '80%',
+    marginTop: 20,
+  },
   main: {
     ...Platform.select({
       web: {
@@ -43,7 +51,7 @@ const styles = StyleSheet.create({
       android: {
         height: 500,
         width: "80%",
-        marginTop: 220
+        marginTop: 270
       },
       ios:{
         height: 500,
@@ -204,8 +212,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 10,
     position: 'absolute',
-    marginTop: 730,
+    marginTop: 710,
   },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    width: '80%',
+  },
+  modalText: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  
 });
 
 export default styles;

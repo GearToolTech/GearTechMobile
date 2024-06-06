@@ -17,7 +17,7 @@ const style = StyleSheet.create({
   },
 
   backlogos: {
-    height: '100%',
+    height: '80%',
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
@@ -33,6 +33,14 @@ const style = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold'
   },
+  icons:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 40,
+    width: '80%',
+    marginTop: 20,
+  },
   main: {
     ...Platform.select({
       web: {
@@ -43,7 +51,7 @@ const style = StyleSheet.create({
       android: {
         height: 500,
         width: '80%',
-        marginTop: 220,
+        marginTop: 260,
       },
       ios: {
         height: 500,
@@ -65,13 +73,12 @@ const style = StyleSheet.create({
         height: '20%',
       },
       android: {
-        height: '30%',
+        height: '25%',
       },
       ios: {
         height: '30%',
       },
     }),
-    marginTop: 10,
     alignItems: 'center',
     backgroundColor: '#E4E9F7',
     justifyContent: 'center',
@@ -207,8 +214,81 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 10,
     position: 'absolute',
-    marginTop: 730,
+    marginTop: 715,
   },
+  modalContainer: {
+    flex: 1,
+    width: '70%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  historyModalContent:{
+    height: 400,
+    width: '100%',
+  },
+  scrollView:{
+    width: '100%',
+  },
+  historicData:{
+    ...Platform.select({
+      web: {
+        height: '65%',
+        width: '80%',
+      },
+      android: {
+        height: '20%',
+        width: '100%',
+      },
+      ios: {
+        height: '55%',
+        width: '90%',
+      },
+    }),
+    alignItems: 'flex-start',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    justifyContent: 'center',
+    padding: 10,
+    borderColor: 'black',
+    borderWidth: 0.5,
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    width: '100%',
+  },
+  modalText: {
+    fontSize: 20,
+    marginBottom: 10,
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+  historyIcon: {
+    marginTop: 20,
+  },
+  modalContainer: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  resultList: {
+    width: "100%",
+  },
+  resultItem: {
+    backgroundColor: "#f0f0f0",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  
 })
 
 export default style

@@ -17,17 +17,23 @@ const style = StyleSheet.create({
   },
 
   backlogos: {
-    height: '18%',
+    height: "18%",
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
-    justifyContent: "space-around",
-    backgroundColor: "white",
+    justifyContent: 'center',
+    backgroundColor: 'white'
   },
+
   logo: {
     height: 75,
     width: 75,
     marginTop: 30,
+  },
+  exit: {
+    position: 'absolute',
+    right: 15,
+    top: 65
   },
 
   main: {
@@ -48,7 +54,7 @@ const style = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 30,
     backgroundColor: "#CDD7F2",
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   containerConicos: {
     height: 150,
@@ -56,7 +62,7 @@ const style = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 30,
     backgroundColor: "#CDD7F2",
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   containerTransmissao: {
     height: 150,
@@ -64,7 +70,7 @@ const style = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 30,
     backgroundColor: "#CDD7F2",
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   image: {
     width: "50%",
@@ -78,9 +84,9 @@ const style = StyleSheet.create({
   text: {
     fontSize: 20,
     marginBottom: 10,
-    alignSelf: 'center',
+    alignSelf: "center",
     fontWeight: "bold",
-    },
+  },
 
   button: {
     height: 40,

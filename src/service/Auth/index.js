@@ -27,7 +27,7 @@ const authService = {
   },
   logout: async () => {
     await AsyncStorage.removeItem("token");
-    console.log(token);
+   
   },
   isLoggedIn: async () => {
     const token = await AsyncStorage.getItem("token");
@@ -54,7 +54,7 @@ const authService = {
   loginProfessor: async (nif, senha) => {
     await AsyncStorage.removeItem("token");
     try {
-      const response = await axios.post("http://10.110.12.16:8080/loginProfessor", {
+      const response = await axios.post("http://10.110.12.16:8080/auth/loginProfessor", {
         nif: nif,
         senha: senha,
       });
