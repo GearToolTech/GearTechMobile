@@ -23,7 +23,7 @@ const saveRegister = {
       numMatricula: user.sub,
     };
 
-    const apiUrl = "http://192.168.0.24:8080/resultadoDentesRetos";
+    const apiUrl = "http://10.110.12.16:8080/resultadoDentesRetos";
     axios.post(apiUrl, {
       circuloPrimitivo1: CirculoPrimitivo1,
       circuloPrimitivo2: CirculoPrimitivo2,
@@ -56,7 +56,7 @@ const saveRegister = {
       numMatricula: user.sub,
     };
 
-    const apiUrl = "http://192.168.0.24:8080/resultadoDentesConicos";
+    const apiUrl = "http://10.110.12.16:8080/resultadoDentesConicos";
     axios.post(apiUrl, {
       circuloPrimitivo1: CirculoPrimitivo1,
       circuloPrimitivo2: CirculoPrimitivo2,
@@ -82,7 +82,7 @@ const saveRegister = {
       numMatricula: user.sub,
     };
 
-    const apiUrl = "http://192.168.0.24:8080/resultadoDentesHelicoidas";
+    const apiUrl = "http://10.110.12.16:8080/resultadoDentesHelicoidas";
     await axios.post(apiUrl, {
       circuloPrimitivo1: CirculoPrimitivo1,
       circuloPrimitivo2: CirculoPrimitivo2,
@@ -100,7 +100,7 @@ const saveRegister = {
       numMatricula: user.sub,
     };
 
-    const apiUrl = "http://192.168.0.24:8080/resultadoTransmissoes";
+    const apiUrl = "http://10.110.12.16:8080/resultadoTransmissoes";
     await axios.post(apiUrl, {
       iTotal: iTotal,
       iIndividuais: iIndividuais,
@@ -115,7 +115,7 @@ const saveRegister = {
         numMatricula: user.sub,
       };
 
-      const apiUrl = "http://192.168.0.24:8080/resultadoDentesRetos/aluno/" + aluno.numMatricula;
+      const apiUrl = "http://10.110.12.16:8080/resultadoDentesRetos/aluno/" + aluno.numMatricula;
       const response = await axios.get(apiUrl);
       console.log("resposta apiurl: ", response.data)
       return response.data;
@@ -132,7 +132,7 @@ const saveRegister = {
         numMatricula: user.sub,
       };
 
-      const apiUrl = "http://192.168.0.24:8080/resultadoDentesHelicoidas/aluno/" + aluno.numMatricula;
+      const apiUrl = "http://10.110.12.16:8080/resultadoDentesHelicoidas/aluno/" + aluno.numMatricula;
       const response = await axios.get(apiUrl);
       console.log("resposta apiurl: ", response.data)
       return response.data;
@@ -149,7 +149,7 @@ const saveRegister = {
         numMatricula: user.sub,
       };
 
-      const apiUrl = "http://192.168.0.24:8080/resultadoDentesConicos/aluno/" + aluno.numMatricula;
+      const apiUrl = "http://10.110.12.16:8080/resultadoDentesConicos/aluno/" + aluno.numMatricula;
       const response = await axios.get(apiUrl);
       console.log("resposta apiurl: ", response.data)
       return response.data;
@@ -166,7 +166,7 @@ const saveRegister = {
         numMatricula: user.sub,
       };
 
-      const apiUrl = "http://192.168.0.24:8080/resultadoTransmissoes/aluno/" + aluno.numMatricula;
+      const apiUrl = "http://10.110.12.16:8080/resultadoTransmissoes/aluno/" + aluno.numMatricula;
       const response = await axios.get(apiUrl);
       console.log("resposta apiurl: ", response.data)
       return response.data;

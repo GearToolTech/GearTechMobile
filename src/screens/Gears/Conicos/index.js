@@ -241,7 +241,7 @@ const Conicos = ({ navigation }) => {
               style={styles.btnRelatorio}
               onPress={downloadResultados}
             >
-              <Text style={styles.txtBtn}>Download</Text>
+              <Text style={styles.txtBtn}>Expotar</Text>
             </TouchableOpacity>
           </View>
         </View>

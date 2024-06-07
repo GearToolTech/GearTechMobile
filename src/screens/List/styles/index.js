@@ -21,8 +21,8 @@ const style = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
-    justifyContent: 'center',
-    backgroundColor: 'white'
+    justifyContent: "center",
+    backgroundColor: "white",
   },
 
   logo: {
@@ -31,50 +31,58 @@ const style = StyleSheet.create({
     marginTop: 30,
   },
   exit: {
-    position: 'absolute',
+    position: "absolute",
     right: 40,
-    top: 65
+    top: 65,
   },
 
   main: {
     width: "80%",
-    justifyContent: "flex-end",
+    alignItems: "flex-end",
   },
   containerDenteReto: {
-    height: 150,
+    height: 125,
+    width: "100%",
     alignItems: "center",
-    marginVertical: 10,
+    marginTop: 40,
     borderRadius: 30,
-    backgroundColor: "#CDD7F2",
+    backgroundColor: "white",
     flexDirection: "row",
-    elevation: 15
+    elevation: 15,
   },
   containerHelicoidal: {
-    height: 150,
+    height: 125,
     alignItems: "center",
-    marginVertical: 10,
+    marginTop: 40,
     borderRadius: 30,
-    backgroundColor: "#CDD7F2",
+    backgroundColor: "white",
     flexDirection: "row",
-    elevation: 15
+    elevation: 15,
   },
   containerConicos: {
-    height: 150,
+    height: 125,
     alignItems: "center",
-    marginVertical: 10,
+    marginTop: 40,
     borderRadius: 30,
-    backgroundColor: "#CDD7F2",
+    backgroundColor: "white",
     flexDirection: "row",
-    elevation: 15
+    elevation: 15,
   },
   containerTransmissao: {
-    height: 150,
+    height: 125,
     alignItems: "center",
-    marginVertical: 10,
+    marginTop: 40,
     borderRadius: 30,
-    backgroundColor: "#CDD7F2",
+    backgroundColor: "white",
     flexDirection: "row",
-    elevation: 15
+    elevation: 15,
+  },
+
+  img: {
+    height: "100%",
+    width: "100%",
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
   },
   image: {
     width: "50%",

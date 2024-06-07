@@ -205,7 +205,7 @@ const DentesRetos = () => {
             style={styles.btnRelatorio}
             onPress={downloadResultados}
           >
-            <Text style={styles.txtBtn}>Download</Text>
+            <Text style={styles.txtBtn}>Exportar</Text>
           </TouchableOpacity>
         </View>
         <Modal visible={showModal} animationType="fade" transparent={true}>

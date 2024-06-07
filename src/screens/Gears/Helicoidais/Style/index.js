@@ -251,6 +251,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
   },
+  emptyResultHistoric:{
+    backgroundColor: 'white',
+    height: 300,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   tituloHistoric: {
     fontSize: 25,
     marginBottom: 10,

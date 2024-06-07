@@ -23,6 +23,7 @@ import Icon_Info from "react-native-vector-icons/Feather";
 import Icon_History from "react-native-vector-icons/FontAwesome5";
 import saveRegister from "../../../service/SaveResults";
 import Icon_Back from "react-native-vector-icons/FontAwesome6";
+import Icon_empty from "react-native-vector-icons/Entypo";
 
 function Helicoidal() {
   const navigation = useNavigation();
@@ -236,7 +237,7 @@ function Helicoidal() {
               style={styles.btnRelatorio}
               onPress={downloadResultados}
             >
-              <Text style={styles.txtBtn}>Download</Text>
+              <Text style={styles.txtBtn}>Exportar</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -276,9 +277,12 @@ function Helicoidal() {
                   </View>
                 ))
               ) : (
-                <Text style={styles.tituloHistoric}>
-                  Nenhum resultado encontrado.
-                </Text>
+                <View style={styles.emptyResultHistoric}>
+                  <Text style={styles.tituloHistoric}>
+                    Você ainda não usou nossa calculadora.
+                  </Text>
+                  <Icon_empty name="emoji-sad" size={60} color={"grey"} />
+                </View>
               )}
             </ScrollView>
             <TouchableOpacity style={styles.btnOk} onPress={toggleHistoryModal}>

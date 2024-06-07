@@ -19,14 +19,11 @@ const ListScreen = () => {
     fetchUser();
   }, []);
 
-
-
   const handleExit = async () => {
-    try{
+    try {
       await authService.logout();
       navigation.navigate("Home");
-    }
-    catch(err){
+    } catch (err) {
       console.log("Erro ao sair da conta: ", err);
     }
   };
@@ -38,23 +35,25 @@ const ListScreen = () => {
         source={require("../../../assets/image/BackGroundList.png")}
       />
       <View style={styles.body}>
-
         <View style={styles.backlogos}>
-          
           <Image
             style={styles.logo}
             source={require("../../../assets/image/Logo.png")}
           />
-
         </View>
-        <Icon_Exit style={styles.exit} name="exit-to-app" size={42} onPress={handleExit}/>
-
+        <Icon_Exit
+          style={styles.exit}
+          name="exit-to-app"
+          size={42}
+          onPress={handleExit}
+        />
 
         <View style={styles.main}>
           <View style={styles.containerDenteReto}>
             <View style={styles.image}>
               <Image
-                source={require("../../../assets/image/DentesRetos.png")}
+                style={styles.img}
+                source={require("../../../assets/image/EngrenagensDR.png")}
               />
             </View>
             <View style={styles.content}>
@@ -70,7 +69,10 @@ const ListScreen = () => {
 
           <View style={styles.containerHelicoidal}>
             <View style={styles.image}>
-              <Image source={require("../../../assets/image/Helicoidal.png")} />
+              <Image
+                style={styles.img}
+                source={require("../../../assets/image/EngrenagensH.png")}
+              />
             </View>
             <View style={styles.content}>
               <Text style={styles.text}>Helicoidal</Text>
@@ -85,7 +87,10 @@ const ListScreen = () => {
 
           <View style={styles.containerConicos}>
             <View style={styles.image}>
-              <Image source={require("../../../assets/image/Conicos.png")} />
+              <Image
+                style={styles.img}
+                source={require("../../../assets/image/EngrenagensC.png")}
+              />
             </View>
             <View style={styles.content}>
               <Text style={styles.text}>Cônica</Text>
@@ -100,7 +105,10 @@ const ListScreen = () => {
 
           <View style={styles.containerTransmissao}>
             <View style={styles.image}>
-              <Image source={require("../../../assets/image/Transmissao.png")} />
+              <Image
+                style={styles.img}
+                source={require("../../../assets/image/EngrenagensT.png")}
+              />
             </View>
             <View style={styles.content}>
               <Text style={styles.text}>Transmissão</Text>
