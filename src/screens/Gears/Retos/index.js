@@ -96,13 +96,25 @@ const DentesRetos = () => {
 
   const fetchResultados = async () => {
     try {
-      const resultados = await saveRegister.fetchResultados();
-      return resultados;
+      const isAluno = await authService.isAluno();
+      const isProfessor = await authService.isProfessor();
+  
+      if (isAluno) {
+        const resultados = await saveRegister.fetchResultados();
+        return resultados;
+      } else if(isProfessor){
+        const resultados = await saveRegister.fetchResultadosProfessor();
+        return resultados;
+      }
+      else{
+        console.log("Usuário não autorizado a acessar os resultados.");
+      }
     } catch (error) {
       console.error("Erro ao buscar resultados:", error);
       return [];
     }
   };
+  
 
   const toggleHistoryModal = async () => {
     if (!showHistoryModal) {

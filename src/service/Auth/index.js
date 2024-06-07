@@ -15,9 +15,9 @@ const authService = {
       const token = response.data.token;
       await AsyncStorage.setItem("token", token);
       if(token != null){
-        console.log("Token: ", token);
-      }else {
-        console.log("Não");
+        console.log("Token de aluno:", token);
+      } else {
+        console.log("Não foi possível obter o token de aluno.");
       }
       return token;
     } catch (error) {
@@ -61,14 +61,38 @@ const authService = {
       const token = response.data.token;
       await AsyncStorage.setItem("token", token);
       if(token != null){
-        console.log("Sim", token);
-      }else {
-        console.log("Não");
+        console.log("Token de professor:", token);
+      } else {
+        console.log("Não foi possível obter o token de professor.");
       }
       return token;
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       throw error;
+    }
+  },
+
+  isAluno: async () => {
+    const token = await AsyncStorage.getItem("token");
+    if (token && !(await authService.isTokenExpired(token))) {
+      const decoded = jwtDecode(token);
+      const isAluno = decoded.tipo === "aluno"; // Verifica se o tipo é "aluno"
+      console.log("Is aluno:", isAluno);
+      return isAluno;
+    } else {
+      return false;
+    }
+  },
+
+  isProfessor: async () => {
+    const token = await AsyncStorage.getItem("token");
+    if (token && !(await authService.isTokenExpired(token))) {
+      const decoded = jwtDecode(token);
+      const isProfessor = decoded.tipo === "professor"; // Verifica se o tipo é "professor"
+      console.log("Is professor:", isProfessor);
+      return isProfessor;
+    } else {
+      return false;
     }
   },
 };

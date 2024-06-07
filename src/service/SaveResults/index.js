@@ -124,6 +124,27 @@ const saveRegister = {
       return [];
     }
   },
+
+  fetchResultadosProfessor: async () => {
+    try {
+      const user = await authService.getLoggedInUser();
+
+      const professor = {
+        nif: user.sub,
+      };
+
+      const apiUrl = "http://10.110.12.16:8080/resultadoDentesRetos/professor/" + professor.nif;
+      const response = await axios.get(apiUrl);
+      console.log("resposta apiurl: ", response.data)
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao buscar resultados requisicao:", error);
+      return [];
+    }
+  },
+
+
+
   fetchResultadosHelicoidal: async () => {
     try {
       const user = await authService.getLoggedInUser();
