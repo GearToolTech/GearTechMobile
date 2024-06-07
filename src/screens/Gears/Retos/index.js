@@ -10,7 +10,7 @@ import {
   Share,
   Modal,
   Button,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
@@ -21,6 +21,8 @@ import Icon_Exit from "react-native-vector-icons/MaterialIcons";
 import Icon_History from "react-native-vector-icons/FontAwesome5";
 import Icon_Info from "react-native-vector-icons/Feather";
 import saveRegister from "../../../service/SaveResults";
+import Icon_empty from "react-native-vector-icons/Entypo";
+import Icon_Back from "react-native-vector-icons/FontAwesome6";
 
 const DentesRetos = () => {
   const navigation = useNavigation();
@@ -123,13 +125,23 @@ const DentesRetos = () => {
               style={styles.goBackButton}
               onPress={handleGoBack}
             >
-              <Image source={require("../../../../assets/image/back.png")} />
+              <Icon_Back
+                style={styles.arrowBack}
+                name="arrow-left"
+                size={40}
+                color={"#10100D"}
+              />
             </TouchableOpacity>
             <Image
               style={styles.logo}
               source={require("../../../../assets/image/Logo.png")}
             />
-            <Icon_Exit name="exit-to-app" size={40} onPress={handleExit} />
+            <Icon_Exit
+              style={{ marginTop: 30 }}
+              name="exit-to-app"
+              size={42}
+              onPress={handleExit}
+            />
           </View>
           <Text style={styles.titulo}>Dentes Retos</Text>
           <View style={styles.icons}>
@@ -183,7 +195,7 @@ const DentesRetos = () => {
                 {Object.entries(resultados).map(([key, value]) => (
                   <Text
                     key={key}
-                    style={styles.resultText}
+                    style={styles.resultTextNoModal}
                   >{`${key}: ${value}`}</Text>
                 ))}
               </View>
@@ -197,7 +209,7 @@ const DentesRetos = () => {
           </TouchableOpacity>
         </View>
         <Modal visible={showModal} animationType="fade" transparent={true}>
-          <View style={styles.modalContainer}>
+          <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
               <Text style={styles.modalText}>
                 Engrenagem de dentes retos é usada para transmitir um movimento
@@ -210,14 +222,23 @@ const DentesRetos = () => {
                 tensão entre as engrenagens, costuma-se usar a Engrenagem
                 helicoidal.
               </Text>
-              <Button  title="OK" onPress={toggleModal} />
+              <TouchableOpacity
+                style={styles.btnOkModalInfo}
+                onPress={toggleModal}
+              >
+                <Text style={styles.txtBtn}>OK</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>
-        <Modal visible={showHistoryModal} animationType="fade" transparent={true}>
+        <Modal
+          visible={showHistoryModal}
+          animationType="fade"
+          transparent={true}
+        >
           <View style={styles.modalContainer}>
             <View style={styles.historyModalContent}>
-              <Text style={styles.modalText}>Histórico de Resultados</Text>
+              <Text style={styles.tituloHistoric}>Histórico de Resultados</Text>
               <ScrollView style={styles.scrollView}>
                 {historicoResultados.length > 0 ? (
                   historicoResultados.map((resultado, index) => (
@@ -230,10 +251,20 @@ const DentesRetos = () => {
                     </View>
                   ))
                 ) : (
-                  <Text style={styles.modalText}>Nenhum resultado encontrado.</Text>
+                  <View style={styles.emptyResultHistoric}>
+                    <Text style={styles.tituloHistoric}>
+                      Você ainda não Calculou.
+                    </Text>
+                    <Icon_empty name="emoji-sad" size={60} color={"grey"} />
+                  </View>
                 )}
               </ScrollView>
-              <Button title="OK" onPress={toggleHistoryModal} />
+              <TouchableOpacity
+                style={styles.btnOk}
+                onPress={toggleHistoryModal}
+              >
+                <Text style={styles.txtBtn}>OK</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>

@@ -47,7 +47,7 @@ const ListScreen = () => {
           />
 
         </View>
-        <Icon_Exit style={styles.exit} name="exit-to-app" size={40} onPress={handleExit}/>
+        <Icon_Exit style={styles.exit} name="exit-to-app" size={42} onPress={handleExit}/>
 
 
         <View style={styles.main}>
@@ -58,7 +58,7 @@ const ListScreen = () => {
               />
             </View>
             <View style={styles.content}>
-              <Text style={styles.text}>Dentes Retos</Text>
+              <Text style={styles.text}>Dente Reto</Text>
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.navigate("Retos")}
@@ -73,7 +73,7 @@ const ListScreen = () => {
               <Image source={require("../../../assets/image/Helicoidal.png")} />
             </View>
             <View style={styles.content}>
-              <Text style={styles.text}>Helicoidais</Text>
+              <Text style={styles.text}>Helicoidal</Text>
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.navigate("Helicoidais")}
@@ -88,7 +88,7 @@ const ListScreen = () => {
               <Image source={require("../../../assets/image/Conicos.png")} />
             </View>
             <View style={styles.content}>
-              <Text style={styles.text}>Cônicos</Text>
+              <Text style={styles.text}>Cônica</Text>
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.navigate("Conicos")}

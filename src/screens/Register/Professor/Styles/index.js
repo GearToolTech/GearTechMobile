@@ -10,21 +10,26 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
-  backlogos:{
+  backlogos: {
     height: 150,
-    flexDirection: 'row',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+  },
+  arrowBack: {
+    marginTop: 20,
+    marginLeft: 50
   },
   logo: {
-    height: 100,
-    width: 100,
-    marginTop: 30
+    height: 90,
+    width: 90,
+    marginTop: 30,
+    marginLeft: 78,
   },
   titulo:{
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
+    marginTop: 50,
   },
   main: {
     ...Platform.select({
@@ -33,7 +38,7 @@ const styles = StyleSheet.create({
         width: "30%",
       },
       android: {
-        height: '65%',
+        height: 550,
         width: '80%',
         marginTop: 40,
       },
@@ -53,16 +58,17 @@ const styles = StyleSheet.create({
     elevation: 15
   },
   box: {
-    height: "90%",
+    height: "100%",
     width: "100%",
     alignItems: "center",
     backgroundColor: "white",
     justifyContent: "center",
+    borderRadius: 10,
   },
   input: {
     backgroundColor: "#DDDCE9",
     padding: 10,
-    height: "10%",
+    height: 55,
     width: "80%",
     borderRadius: 5,
     marginVertical: 8,

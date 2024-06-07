@@ -24,7 +24,7 @@ function HomeScreen() {
         <View style={styles.backHeader}>
           <Text style={styles.MsgB}>Bem Vindo! </Text>
           <Text style={styles.Msg}>
-            Desenvolvemos um software capaz de poupar seu tempo quando mais
+            Desenvolvemos um App capaz de poupar seu tempo quando mais
             precisa!
           </Text>
         </View>

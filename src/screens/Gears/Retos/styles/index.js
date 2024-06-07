@@ -17,16 +17,20 @@ const style = StyleSheet.create({
   },
 
   backlogos: {
-    height: '80%',
+    height: '75%',
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
     justifyContent: "space-around",
     backgroundColor: "white",
   },
+  arrowBack: {
+    marginTop: 30,
+    marginLeft: 20,
+  },
   logo: {
-    height: 75,
-    width: 75,
+    height: 90,
+    width: 90,
     marginTop: 30,
   },
   titulo:{
@@ -49,7 +53,7 @@ const style = StyleSheet.create({
         marginTop: 190,
       },
       android: {
-        height: 500,
+        height: 550,
         width: '80%',
         marginTop: 260,
       },
@@ -73,7 +77,7 @@ const style = StyleSheet.create({
         height: '20%',
       },
       android: {
-        height: '25%',
+        height: '22%',
       },
       ios: {
         height: '30%',
@@ -192,6 +196,9 @@ const style = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 0.5,
   },
+  resultTextNoModal:{
+
+  },
   btnRelatorio: {
     ...Platform.select({
       web: {
@@ -214,53 +221,64 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 10,
     position: 'absolute',
-    marginTop: 715,
+    marginTop: 755,
   },
-  modalContainer: {
+  modalOverlay: {
     flex: 1,
-    width: '70%',
+    width: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 15,
   },
-  historyModalContent:{
-    height: 400,
-    width: '100%',
+  historyModalContent: {
+    height: 480,
+    width: "100%",
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
   },
   scrollView:{
+    maxHeight: 400,
     width: '100%',
   },
-  historicData:{
+  historicData: {
     ...Platform.select({
       web: {
-        height: '65%',
-        width: '80%',
+        height: "65%",
+        width: "80%",
       },
       android: {
-        height: '20%',
-        width: '100%',
+        height: "auto",
+        width: "100%",
       },
       ios: {
-        height: '55%',
-        width: '90%',
+        height: "55%",
+        width: "90%",
       },
     }),
-    alignItems: 'flex-start',
-    backgroundColor: 'white',
-    borderRadius: 5,
-    justifyContent: 'center',
+    alignItems: "flex-start",
+    backgroundColor: "white",
+    borderRadius: 10,
+    justifyContent: "center",
     padding: 10,
-    borderColor: 'black',
-    borderWidth: 0.5,
+    borderBottomWidth: 0.5,
+    borderColor: 'black'
   },
   modalContent: {
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
-    width: '100%',
+    width: '90%',
+    alignItems: 'center'
   },
   modalText: {
     fontSize: 20,
+    marginBottom: 10,
+    fontWeight: 'bold'
+  },
+  tituloHistoric:{
+    fontSize: 25,
     marginBottom: 10,
     textAlign: 'center',
     fontWeight: 'bold'
@@ -273,6 +291,7 @@ const style = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalTitle: {
     fontSize: 24,
@@ -288,7 +307,41 @@ const style = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
   },
-  
+  emptyResultHistoric:{
+    backgroundColor: 'white',
+    height: 300,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  resultText:{
+    marginVertical: 2,
+    fontSize: 14,
+  },
+  btnOkModalInfo: {
+    marginTop: 15,
+    marginBottom: 7.5,
+    height: 50,
+    width: "70%",
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: "#212529",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  btnOk:{
+    marginTop: 15,
+    marginBottom: 7.5,
+    height: "8%",
+    width: "70%",
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: "#212529",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  txtBtn: {
+    color: "white",
+  },
 })
 
 export default style

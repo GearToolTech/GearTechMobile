@@ -26,13 +26,13 @@ const style = StyleSheet.create({
   },
 
   logo: {
-    height: 75,
-    width: 75,
+    height: 90,
+    width: 90,
     marginTop: 30,
   },
   exit: {
     position: 'absolute',
-    right: 15,
+    right: 40,
     top: 65
   },
 
@@ -47,6 +47,7 @@ const style = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: "#CDD7F2",
     flexDirection: "row",
+    elevation: 15
   },
   containerHelicoidal: {
     height: 150,
@@ -55,6 +56,7 @@ const style = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: "#CDD7F2",
     flexDirection: "row",
+    elevation: 15
   },
   containerConicos: {
     height: 150,
@@ -63,6 +65,7 @@ const style = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: "#CDD7F2",
     flexDirection: "row",
+    elevation: 15
   },
   containerTransmissao: {
     height: 150,
@@ -71,6 +74,7 @@ const style = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: "#CDD7F2",
     flexDirection: "row",
+    elevation: 15
   },
   image: {
     width: "50%",

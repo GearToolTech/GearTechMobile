@@ -11,20 +11,24 @@ const styles = StyleSheet.create({
     width: '100%',
     
   },
-  backlogos:{
+  backlogos: {
     height: 150,
-    flexDirection: 'row',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+  },
+  arrowBack: {
+    marginTop: 20,
+    marginLeft: 50
   },
   logo: {
-    height: 100,
-    width: 100,
-    marginTop: 30
+    height: 90,
+    width: 90,
+    marginTop: 30,
+    marginLeft: 78,
   },
   titulo:{
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   main: {

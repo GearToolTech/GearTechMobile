@@ -21,6 +21,8 @@ import authService from "../../../service/Auth";
 import Icon_Exit from "react-native-vector-icons/MaterialIcons";
 import Icon_Info from "react-native-vector-icons/Feather";
 import Icon_History from "react-native-vector-icons/FontAwesome5";
+import saveRegister from "../../../service/SaveResults";
+import Icon_Back from "react-native-vector-icons/FontAwesome6";
 
 function Helicoidal() {
   const navigation = useNavigation();
@@ -32,6 +34,8 @@ function Helicoidal() {
   const [numDentes2, setNumDentes2] = useState("");
   const [resultados, setResultados] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [historicoResultados, setHistoricoResultados] = useState([]);
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
 
   const calcular = () => {
     const resultadosCalculoPromise = CalculosHelicoidais(
@@ -100,6 +104,24 @@ function Helicoidal() {
     navigation.goBack();
   };
 
+  const fetchResultados = async () => {
+    try {
+      const resultados = await saveRegister.fetchResultadosHelicoidal();
+      return resultados;
+    } catch (error) {
+      console.error("Erro ao buscar resultados:", error);
+      return [];
+    }
+  };
+
+  const toggleHistoryModal = async () => {
+    if (!showHistoryModal) {
+      const resultados = await fetchResultados();
+      setHistoricoResultados(resultados);
+    }
+    setShowHistoryModal(!showHistoryModal);
+  };
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -118,20 +140,32 @@ function Helicoidal() {
                 style={styles.goBackButton}
                 onPress={handleGoBack}
               >
-                <Image source={require("../../../../assets/image/back.png")} />
+                <Icon_Back
+                  style={styles.arrowBack}
+                  name="arrow-left"
+                  size={40}
+                  color={"#10100D"}
+                />
               </TouchableOpacity>
               <Image
                 style={styles.logo}
                 source={require("../../../../assets/image/Logo.png")}
               />
-              <Icon_Exit name="exit-to-app" size={40} onPress={handleExit} />
+              <Icon_Exit
+                style={{ marginTop: 30 }}
+                name="exit-to-app"
+                size={42}
+                onPress={handleExit}
+              />
             </View>
             <Text style={styles.titulo}>Engrenagem Helicoidal</Text>
             <View style={styles.icons}>
               <TouchableOpacity onPress={toggleModal}>
                 <Icon_Info name="info" size={30} color={"black"} />
               </TouchableOpacity>
-              <Icon_History name="history" size={30} color={"black"} />
+              <TouchableOpacity onPress={toggleHistoryModal}>
+                <Icon_History name="history" size={30} color={"black"} />
+              </TouchableOpacity>
             </View>
             <View style={styles.main}>
               <View style={styles.box}>
@@ -211,13 +245,45 @@ function Helicoidal() {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalText}>
-              engrenagem helicoidal tem esse nome devido ao seu formato de
+              Engrenagem helicoidal tem esse nome devido ao seu formato de
               hélice, com a presença de dentes transversais que atuam em
               conjunto para a transmissão do torque. Além disso, a peça trabalha
               em pares, por meio do encaixe dos dentes do pinhão com a
               engrenagem durante a operação.
             </Text>
-            <Button title="OK" onPress={toggleModal} />
+            <TouchableOpacity
+              style={styles.btnOkModalInfo}
+              onPress={toggleModal}
+            >
+              <Text style={styles.txtBtn}>OK</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+      <Modal visible={showHistoryModal} animationType="fade" transparent={true}>
+        <View style={styles.modalContainer}>
+          <View style={styles.historyModalContent}>
+            <Text style={styles.tituloHistoric}>Histórico de Resultados</Text>
+            <ScrollView style={styles.scrollView}>
+              {historicoResultados.length > 0 ? (
+                historicoResultados.map((resultado, index) => (
+                  <View key={index} style={styles.historicData}>
+                    {Object.entries(resultado).map(([key, value]) => (
+                      <Text key={key} style={styles.resultText}>
+                        {`${key}: ${value}`}
+                      </Text>
+                    ))}
+                  </View>
+                ))
+              ) : (
+                <Text style={styles.tituloHistoric}>
+                  Nenhum resultado encontrado.
+                </Text>
+              )}
+            </ScrollView>
+            <TouchableOpacity style={styles.btnOk} onPress={toggleHistoryModal}>
+              <Text style={styles.txtBtn}>OK</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>

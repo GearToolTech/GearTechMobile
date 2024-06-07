@@ -1,38 +1,42 @@
 import { StyleSheet, Platform } from "react-native";
+import style from "../../../Gears/Retos/styles";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
-  BackGround:{
+  BackGround: {
     flex: 1,
-    width: '100%',
-    
+    width: "100%",
   },
-  backlogos:{
+  backlogos: {
     height: 150,
-    flexDirection: 'row',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+  },
+  arrowBack: {
+    marginTop: 20,
+    marginLeft: 50
   },
   logo: {
-    height: 100,
-    width: 100,
-    marginTop: 30
+    height: 90,
+    width: 90,
+    marginTop: 30,
+    marginLeft: 78,
   },
-  titulo:{
-    fontSize: 16,
-    fontWeight: 'bold',
+  titulo: {
+    fontSize: 18,
+    fontWeight: "bold",
   },
   main: {
     ...Platform.select({
       web: {
         height: "60%",
         width: "30%",
-        marginTop: 40
+        marginTop: 40,
       },
       android: {
         height: 500,
@@ -40,12 +44,12 @@ const styles = StyleSheet.create({
         marginTop: 40,
         elevation: 20,
       },
-      ios:{
-        height: '49%',
+      ios: {
+        height: "49%",
         width: "80%",
         marginTop: 80,
         elevation: 20,
-      }
+      },
     }),
     alignItems: "center",
     justifyContent: "center",
@@ -53,8 +57,8 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     backgroundColor: "white",
     borderRadius: 10,
-    position: 'absolute',
-    marginTop: 200
+    position: "absolute",
+    marginTop: 200,
   },
   box: {
     height: "80%",
@@ -74,8 +78,8 @@ const styles = StyleSheet.create({
     width: "80%",
     borderRadius: 5,
     marginVertical: 10,
-    borderColor: 'black',
-    borderWidth: 0.5
+    borderColor: "black",
+    borderWidth: 0.5,
   },
   button: {
     marginTop: 30,

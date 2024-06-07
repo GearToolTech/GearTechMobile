@@ -19,6 +19,9 @@ import authService from "../../../service/Auth";
 import Icon_Exit from "react-native-vector-icons/MaterialIcons";
 import Icon_Info from "react-native-vector-icons/Feather";
 import Icon_History from "react-native-vector-icons/FontAwesome5";
+import saveRegister from "../../../service/SaveResults";
+import Icon_empty from "react-native-vector-icons/Entypo";
+import Icon_Back from "react-native-vector-icons/FontAwesome6";
 
 const Conicos = ({ navigation }) => {
   const [modulo1, setModulo1] = useState("");
@@ -29,6 +32,8 @@ const Conicos = ({ navigation }) => {
   const [AnguloPrimitivoCones2, setAnguloPrimitivoCones2] = useState("");
   const [resultado, setResultados] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [historicoResultados, setHistoricoResultados] = useState([]);
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
 
   const calcular = () => {
     const resultadosCalculoPromise = Calculos(
@@ -94,6 +99,24 @@ const Conicos = ({ navigation }) => {
     navigation.goBack();
   };
 
+  const fetchResultados = async () => {
+    try {
+      const resultados = await saveRegister.fetchResultadosConico();
+      return resultados;
+    } catch (error) {
+      console.error("Erro ao buscar resultados:", error);
+      return [];
+    }
+  };
+
+  const toggleHistoryModal = async () => {
+    if (!showHistoryModal) {
+      const resultados = await fetchResultados();
+      setHistoricoResultados(resultados);
+    }
+    setShowHistoryModal(!showHistoryModal);
+  };
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -112,20 +135,32 @@ const Conicos = ({ navigation }) => {
                 style={styles.goBackButton}
                 onPress={handleGoBack}
               >
-                <Image source={require("../../../../assets/image/back.png")} />
+                <Icon_Back
+                  style={styles.arrowBack}
+                  name="arrow-left"
+                  size={40}
+                  color={"#10100D"}
+                />
               </TouchableOpacity>
               <Image
                 style={styles.logo}
                 source={require("../../../../assets/image/Logo.png")}
               />
-              <Icon_Exit name="exit-to-app" size={40} onPress={handleExit} />
+              <Icon_Exit
+                style={{ marginTop: 30 }}
+                name="exit-to-app"
+                size={42}
+                onPress={handleExit}
+              />
             </View>
             <Text style={styles.titulo}>Engrenagem Cônica</Text>
             <View style={styles.icons}>
               <TouchableOpacity onPress={toggleModal}>
                 <Icon_Info name="info" size={30} color={"black"} />
               </TouchableOpacity>
-              <Icon_History name="history" size={30} color={"black"} />
+              <TouchableOpacity onPress={toggleHistoryModal}>
+                <Icon_History name="history" size={30} color={"black"} />
+              </TouchableOpacity>
             </View>
             <View style={styles.main}>
               <View style={styles.box}>
@@ -219,7 +254,46 @@ const Conicos = ({ navigation }) => {
                 cónicas podem ter dentes retos, inclinados e espirais ou curvos,
                 podendo ainda apresentar eixos descentrados (hipoides).
               </Text>
-              <Button title="OK" onPress={toggleModal} />
+              <TouchableOpacity style={styles.btnOkModalInfo} onPress={toggleModal}>
+              <Text style={styles.txtBtn}>OK</Text>
+            </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+        <Modal
+          visible={showHistoryModal}
+          animationType="fade"
+          transparent={true}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.historyModalContent}>
+              <Text style={styles.tituloHistoric}>Histórico de Resultados</Text>
+              <ScrollView style={styles.scrollView}>
+                {historicoResultados.length > 0 ? (
+                  historicoResultados.map((resultado, index) => (
+                    <View key={index} style={styles.historicData}>
+                      {Object.entries(resultado).map(([key, value]) => (
+                        <Text key={key} style={styles.resultText}>
+                          {`${key}: ${value}`}
+                        </Text>
+                      ))}
+                    </View>
+                  ))
+                ) : (
+                  <View style={styles.emptyResultHistoric}>
+                    <Text style={styles.tituloHistoric}>
+                      Você ainda não usou nossa calculadora.
+                    </Text>
+                    <Icon_empty name="emoji-sad" size={60} color={"grey"} />
+                  </View>
+                )}
+              </ScrollView>
+              <TouchableOpacity
+                style={styles.btnOk}
+                onPress={toggleHistoryModal}
+              >
+                <Text style={styles.txtBtn}>OK</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>

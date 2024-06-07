@@ -17,28 +17,32 @@ const styles = StyleSheet.create({
   },
 
   backlogos: {
-    height: '80%',
+    height: "78%",
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
     justifyContent: "space-around",
     backgroundColor: "white",
   },
+  arrowBack: {
+    marginTop: 30,
+    marginLeft: 20,
+  },
   logo: {
-    height: 75,
-    width: 75,
+    height: 90,
+    width: 90,
     marginTop: 30,
   },
-  titulo:{
+  titulo: {
     fontSize: 25,
-    fontWeight: 'bold'
+    fontWeight: "bold",
   },
-  icons:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  icons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     height: 40,
-    width: '80%',
+    width: "80%",
     marginTop: 20,
   },
   main: {
@@ -46,80 +50,78 @@ const styles = StyleSheet.create({
       web: {
         height: "65%",
         width: "30%",
-        marginTop: 190
+        marginTop: 190,
       },
       android: {
         height: 500,
         width: "80%",
-        marginTop: 270
+        marginTop: 270,
       },
-      ios:{
+      ios: {
         height: 500,
         width: "80%",
-        marginTop: 220
-      }
+        marginTop: 220,
+      },
     }),
     alignItems: "center",
     backgroundColor: "#E4E9F7",
     borderRadius: 10,
     shadowColor: "#171717",
     shadowRadius: 10,
-    position: 'absolute',
-    elevation: 15
+    position: "absolute",
+    elevation: 15,
   },
   box: {
     ...Platform.select({
-      web:{
+      web: {
         height: "30%",
       },
-      android:{
+      android: {
         height: "30%",
       },
-      ios:{
+      ios: {
         height: "30%",
-      }
+      },
     }),
     marginTop: 10,
     alignItems: "center",
     backgroundColor: "#E4E9F7",
     justifyContent: "center",
-    flexDirection: 'row',
-    width: '99%',
+    flexDirection: "row",
+    width: "99%",
   },
   text: {
     fontSize: 15,
     marginBottom: 10,
   },
-  input1:{
+  input1: {
     ...Platform.select({
       web: {
-        height: '100%',
+        height: "100%",
       },
       android: {
-        height: '100%',
+        height: "100%",
       },
-      ios:{
-        height: '100%',
-      }
+      ios: {
+        height: "100%",
+      },
     }),
 
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '50%',
+    alignItems: "center",
+    justifyContent: "center",
+    width: "50%",
   },
-  input2:{
+  input2: {
     ...Platform.select({
       web: {
-        height: '100%',
+        height: "100%",
       },
-      android: {
-
-      },
+      android: {},
     }),
 
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '50%',
+    alignItems: "center",
+    justifyContent: "center",
+    width: "50%",
   },
   input: {
     ...Platform.select({
@@ -131,10 +133,10 @@ const styles = StyleSheet.create({
         height: 40,
         width: "80%",
       },
-      ios:{
+      ios: {
         height: 40,
         width: "80%",
-      }
+      },
     }),
     backgroundColor: "white",
     padding: 5,
@@ -152,9 +154,9 @@ const styles = StyleSheet.create({
       android: {
         height: "8%",
       },
-      ios:{
+      ios: {
         height: "8%",
-      }
+      },
     }),
     width: "50%",
     borderRadius: 5,
@@ -178,9 +180,7 @@ const styles = StyleSheet.create({
         height: "40%",
         width: "90%",
       },
-      ios:{  height: "40%",
-      width: "90%",
-      }
+      ios: { height: "40%", width: "90%" },
     }),
     alignItems: "flex-start",
     backgroundColor: "white",
@@ -200,10 +200,10 @@ const styles = StyleSheet.create({
         height: 40,
         width: "30%",
       },
-      ios:{
+      ios: {
         height: 40,
         width: "30%",
-      }
+      },
     }),
     borderRadius: 5,
     padding: 5,
@@ -211,26 +211,108 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 10,
-    position: 'absolute',
+    position: "absolute",
     marginTop: 710,
   },
-  modalContainer: {
+  modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 15,
   },
+
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 20,
     borderRadius: 10,
-    width: '80%',
+    width: "100%",
+    alignItems: "center",
   },
+
   modalText: {
-    fontSize: 16,
+    fontSize: 20,
     marginBottom: 10,
+    fontWeight: "bold",
   },
-  
+
+  modalContainer: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  historyModalContent: {
+    height: 480,
+    width: "100%",
+    backgroundColor: "white",
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  tituloHistoric: {
+    fontSize: 25,
+    marginBottom: 10,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  scrollView: {
+    maxHeight: 400,
+    width: "100%",
+  },
+  historicData: {
+    ...Platform.select({
+      web: {
+        height: "65%",
+        width: "80%",
+      },
+      android: {
+        height: "auto",
+        width: "100%",
+      },
+      ios: {
+        height: "55%",
+        width: "90%",
+      },
+    }),
+    alignItems: "flex-start",
+    backgroundColor: "white",
+    borderRadius: 10,
+    justifyContent: "center",
+    padding: 10,
+    borderBottomWidth: 0.5,
+    borderColor: "black",
+  },
+  resultText: {
+    marginVertical: 2,
+    fontSize: 14,
+  },
+  btnOkModalInfo: {
+    marginTop: 15,
+    marginBottom: 7.5,
+    height: 50,
+    width: "70%",
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: "#212529",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  btnOk: {
+    marginTop: 15,
+    marginBottom: 7.5,
+    height: "8%",
+    width: "70%",
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: "#212529",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  txtBtn: {
+    color: "white",
+  },
 });
 
 export default styles;
